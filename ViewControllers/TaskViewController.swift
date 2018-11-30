@@ -18,7 +18,7 @@ class TaskViewController: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        taskLibrary.tasks.append
+        taskLibrary.tasks.append(Task(title: "Test", description: "test dat boi", priority: .high))
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
@@ -27,6 +27,7 @@ class TaskViewController: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataS
         
     }
     
+    //functions for completing and incompleting games.
     func incomplete(indexPath: IndexPath) {
         let task = self.taskLibrary.tasks[indexPath.row]
         
@@ -47,7 +48,7 @@ class TaskViewController: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataS
     
 }
 
-
+//Extension that sets up the format for the table view and how many cells to create when a certain amount of tasks are added to the library
 extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskLibrary.tasks.count
@@ -62,6 +63,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //Delete function so when the user slides to the left on the cell the option to delete a cell appears and when selected, removes the task
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _, indexPath in
@@ -93,7 +95,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
+//An extension of the LibraryViewController class that displays a message when there are no tasks stored in the library and prompts to add some by pressing a button
 extension TaskViewController {
     func title(forEmptyDataSet scrollView: UIScrollView?) -> NSAttributedString? {
         let text = "There are no tasks"

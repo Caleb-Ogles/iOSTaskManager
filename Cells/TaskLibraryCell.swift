@@ -14,12 +14,14 @@ class TaskLibraryCell: UITableViewCell {
     @IBOutlet weak var taskDueDateLabel: UILabel!
     @IBOutlet weak var taskPriorityLabel: UILabel!
     @IBOutlet weak var markerView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
-    
+    //This function sets up the UI in the table view cell to match values with their coresponding labels
     func setup(task: Task) {
         
         taskTitleLabel.text = task.title
         taskPriorityLabel.text = task.priority.rawValue
+        descriptionLabel.text = task.description
         
         switch task.dueDate {
             

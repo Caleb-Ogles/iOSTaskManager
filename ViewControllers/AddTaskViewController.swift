@@ -41,6 +41,7 @@ class AddTaskViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
+    //function for taking the input the user makes and when called bundles the values into an array together
     func trySavingTask() {
         
         guard let title = taskTitleTextField.text else { return }

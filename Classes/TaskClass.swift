@@ -8,6 +8,7 @@
 
 import Foundation
 
+//This is the class to go by when making a task and adding it to the Task array, contains all that is needed to create a task.
 class Task {
     
     var title: String
