@@ -15,18 +15,18 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var prioritySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var dueDateDatePicker: UIDatePicker!
     
     @IBAction func saveTapped(_ sender: Any) {
         trySavingTask()
         performSegue(withIdentifier: "unwindToLibraryScreen", sender: self)
     }
     
+    var newTask: Task?
+    
     let segments: [(title: String, priority: Task.Priority)] =
         [("High", .high),
          ("Medium", .medium),
          ("Low", .low)]
-    
     
     
     override func viewDidLoad() {
@@ -44,14 +44,20 @@ class AddTaskViewController: UIViewController {
     //function for taking the input the user makes and when called bundles the values into an array together
     func trySavingTask() {
         
-        guard let title = taskTitleTextField.text else { return }
+        guard let title = taskTitleTextField.text else {
+            return
+            
+        }
         
-        guard let description = descriptionTextView.text else { return }
+        guard let description = descriptionTextView.text else {
+            return
+            
+        }
         
         let priority = segments[prioritySegmentedControl.selectedSegmentIndex].priority
         
-        taskLibrary.tasks.append(Task(title: title, description: description, priority: priority))
-        
+        newTask = Task(title: title, description: description, priority: priority)
+        taskLibrary.tasks.append(newTask!)
         
     }
     

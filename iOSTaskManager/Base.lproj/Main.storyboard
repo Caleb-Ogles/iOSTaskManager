@@ -146,7 +146,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="w6w-kI-Zlc">
-                                        <rect key="frame" x="57" y="124.33333333333331" width="300" height="98.333333333333314"/>
+                                        <rect key="frame" x="57" y="124.33333333333334" width="300" height="442.33333333333326"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLx-RN-xZu">
                                                 <rect key="frame" x="98" y="0.0" width="104.33333333333331" height="25.333333333333332"/>
@@ -155,7 +155,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter your task data here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMd-Tu-b2y">
-                                                <rect key="frame" x="10" y="48.333333333333371" width="280" height="50"/>
+                                                <rect key="frame" x="10" y="48.333333333333371" width="280" height="394"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="280" id="UjT-VZ-Efn"/>
@@ -173,7 +173,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Jn2-Pe-7ch">
-                                        <rect key="frame" x="87" y="272.66666666666669" width="240" height="80.333333333333314"/>
+                                        <rect key="frame" x="87" y="616.66666666666663" width="240" height="80.333333333333371"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9d-hT-elw">
                                                 <rect key="frame" x="88" y="0.0" width="64.333333333333314" height="25.333333333333332"/>
@@ -182,7 +182,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NCm-sh-A57">
-                                                <rect key="frame" x="29" y="50.333333333333314" width="182" height="31"/>
+                                                <rect key="frame" x="29" y="50.333333333333371" width="182" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3K2-fQ-nnk"/>
                                                 </constraints>
@@ -195,26 +195,6 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="dza-aa-Edr"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gXM-WO-b6I">
-                                        <rect key="frame" x="57" y="403" width="300" height="294"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EY8-Di-zsX">
-                                                <rect key="frame" x="107.66666666666666" y="0.0" width="85" height="25.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="MRk-le-i59">
-                                                <rect key="frame" x="0.0" y="33.333333333333371" width="300" height="260.66666666666669"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="565029393.72173202">
-                                                    <!--2018-11-27 16:36:33 +0000-->
-                                                </date>
-                                            </datePicker>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="fu4-81-vQo"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -233,15 +213,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="NpV-4B-sTU">
                             <connections>
                                 <action selector="saveTapped:" destination="Vqn-Bl-qgh" id="Yjk-72-cBB"/>
+                                <segue destination="27e-Ey-Hx8" kind="unwind" identifier="unwindToLibraryScreen" unwindAction="unwindToLibraryScreenWithSegue:" id="wn8-UT-otJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextView" destination="yMd-Tu-b2y" id="fQe-A7-tCi"/>
-                        <outlet property="dueDateDatePicker" destination="MRk-le-i59" id="irK-QX-1kr"/>
                         <outlet property="prioritySegmentedControl" destination="NCm-sh-A57" id="2RN-Gc-zJD"/>
                         <outlet property="taskTitleTextField" destination="Uc7-CZ-W8t" id="4bM-ck-ASe"/>
-                        <segue destination="27e-Ey-Hx8" kind="unwind" identifier="unwindToLibraryScreen" unwindAction="unwindToLibraryScreenWithSegue:" id="dmm-nF-0Xn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xne-qr-bxW" userLabel="First Responder" sceneMemberID="firstResponder"/>

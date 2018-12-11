@@ -24,8 +24,16 @@ class TaskViewController: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataS
         tableView.emptyDataSetDelegate = self
         tableView.tableFooterView = UIView()
         tableView.reloadData()
+        print(taskLibrary.tasks)
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    @IBAction func unwindToLibraryScreen(segue: UIStoryboardSegue){}
     
     //functions for completing and incompleting games.
     func incomplete(indexPath: IndexPath) {
@@ -44,8 +52,6 @@ class TaskViewController: UIViewController, DZNEmptyDataSetSource, DZNEmptyDataS
         (tableView.cellForRow(at: indexPath) as! TaskLibraryCell).setup(task: task)
     }
     
-    @IBAction func unwindToLibraryScreen(segue: UIStoryboardSegue){}
-    
 }
 
 //Extension that sets up the format for the table view and how many cells to create when a certain amount of tasks are added to the library
@@ -59,6 +65,8 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
         
         let task = taskLibrary.tasks[indexPath.row]
         cell.setup(task: task)
+        
+        cell.taskTitleLabel?.text = taskLibrary.tasks[indexPath.row].title
         
         return cell
     }
